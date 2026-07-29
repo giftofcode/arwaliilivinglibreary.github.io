@@ -84,24 +84,54 @@ scene.add(keyLight);
 // ===============================
 
 const geometry = new THREE.BoxGeometry(
-
+    2.4,
+    0.28,
+    3.3,
+    6,
     2,
+    6
+);
 
-    0.35,
+const material = new THREE.MeshPhysicalMaterial({
 
-    3
+    color:0x5b3417,
+
+    roughness:0.85,
+
+    metalness:0.05,
+
+    clearcoat:0.2,
+
+    clearcoatRoughness:0.9
+
+});
+// Golden page edges
+
+const pages = new THREE.Mesh(
+
+    new THREE.BoxGeometry(
+
+        2.22,
+
+        0.22,
+
+        3.05
+
+    ),
+
+    new THREE.MeshStandardMaterial({
+
+        color:0xd7bf71,
+
+        roughness:0.9
+
+    })
 
 );
 
-const material = new THREE.MeshStandardMaterial({
+pages.position.y = -0.01;
 
-    color:0x4a2d0f,
-
-    roughness:0.45,
-
-    metalness:0.25
-
-});
+scene.add(pages);
 
 const book = new THREE.Mesh(
 
@@ -183,9 +213,11 @@ function animate(){
 
     // Floating
 
-    book.position.y =
+    const floatY = Math.sin(t) * 0.12;
 
-        Math.sin(t)*0.2;
+book.position.y = floatY;
+
+pages.position.y = floatY - 0.01;
 
     // Rotation
 
@@ -200,6 +232,7 @@ function animate(){
     book.rotation.z =
 
         -mouseX*0.25;
+    pages.rotation.copy(book.rotation);
 
     renderer.render(
 
