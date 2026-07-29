@@ -365,3 +365,55 @@ body{
 }
 
 }
+@media (max-width: 768px) {
+
+    .site-nav {
+        position: absolute;
+        top: 78px;
+        right: 6%;
+        width: 210px;
+        padding: 24px;
+        display: none;
+        flex-direction: column;
+        gap: 22px;
+        background: rgba(12, 10, 8, 0.96);
+        border: 1px solid rgba(185, 138, 69, 0.35);
+        border-radius: 14px;
+    }
+
+    .site-nav.nav-open {
+        display: flex;
+    }
+
+    .menu-button {
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
+    }
+
+    .menu-button span {
+        display: block;
+        width: 25px;
+        height: 1px;
+        margin: 7px auto;
+        background: #d4af72;
+    }
+
+    .hero {
+        align-items: flex-start;
+        padding-top: 145px;
+    }
+
+    .hero-copy {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.4rem, 11vw, 3.4rem);
+    }
+
+    .book-label {
+        bottom: 25px;
+    }
+}
